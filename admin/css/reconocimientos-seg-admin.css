@@ -1,0 +1,21 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+ .ui-autocomplete {
+	float: left;
+	box-shadow: 2px 2px 3px #888888;
+        background: #FFF;
+}
+
+.ui-menu-item {
+	list-style-type: none;
+	padding: 10px;
+}
+
+.ui-menu-item:hover {
+	background: #F1F1F1;
+}
+#btn1 {
+	color: #888888;
+}

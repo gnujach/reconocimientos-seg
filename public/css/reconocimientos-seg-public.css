@@ -1,0 +1,84 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ div.post {
+    position: relative;
+    margin-left: 10em;
+    padding: 2em;
+    background: url(http://planet.gnome.org/img/bubble/post_topbg.png) center top repeat-x, url(http://planet.gnome.org/img/bubble/post_bottombg.png) center bottom repeat-x;
+    box-shadow: 0 0 4px rgba(50, 50, 50, 0.25);
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 10px;
+    margin-top: 10px;
+ }
+ .post-contents{
+     background: white;
+ }
+ .post-footer {
+     margin-top: 1em;
+ }
+ /* Hiding the checkbox, but allowing it to be focused */
+.badgebox
+{
+    opacity: 0;
+}
+
+.badgebox + .badge
+{
+    /* Move the check mark away when unchecked */
+    text-indent: -999999px;
+    /* Makes the badge's width stay the same checked and unchecked */
+	width: 27px;
+}
+
+.badgebox:focus + .badge
+{
+    /* Set something to make the badge looks focused */
+    /* This really depends on the application, in my case it was: */
+    
+    /* Adding a light border */
+    box-shadow: inset 0px 0px 5px;
+    /* Taking the difference out of the padding */
+}
+
+.badgebox:checked + .badge
+{
+    /* Move the check mark back when checked */
+	text-indent: 0;
+}
+.btn-amor {
+    color: #fff;
+    background-color: #EC644B;
+    border-color: #EC644B;
+}
+.btn-honestidad {
+    color: #fff;
+    background-color: #87D37C;
+    border-color: #87D37C;
+}
+.btn-responsabilidad {
+    color: #fff;
+    background-color: #446CB3;
+    border-color: #446CB3;
+}
+.btn-generosidad {
+    color: #fff;
+    background-color: #F9690E;
+    border-color: #F9690E;
+}
+.btn-union {
+    color: #fff;
+    background-color: #D2527F;
+    border-color: #D2527F;
+}
+form .counter{
+	position:absolute;
+	right:0;
+	top:0;
+	font-size:20px;
+	font-weight:bold;
+	color:#ccc;
+}
+form .warning{color:#600;}	
+form .exceeded{color:#e00;}
