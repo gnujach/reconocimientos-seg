@@ -1,6 +1,13 @@
 <?php
-
-
+if (! is_user_logged_in() ) {
+?>
+<div class= "alert alert-danger" role="alert" style="margin-top: 20px">
+    <h2> <strong>Acceso permitido solo a usuarios autentificados</strong> </h2>
+</div>
+<?php
+} else {
+?>
+<?php
 if (isset( $_POST[‘cpt_nonce_field’] ) && wp_verify_nonce( $_POST[‘cpt_nonce_field’], ‘cpt_nonce_action’ ) )
 {
 //     if (taxonomy_exists( 'valores' ))
@@ -13,29 +20,41 @@ if (isset( $_POST[‘cpt_nonce_field’] ) && wp_verify_nonce( $_POST[‘cpt_non
 //         exit();
 //     }
     // $terms = get_terms( 'valores' );
-    print_r($_POST);
+    // print_r($_POST);
     $terms =  get_terms( $args = array ( 'taxonomy'=> 'valores',  'hide_empty' => false,) );
     foreach ( $terms as $term)
         echo $term->name . "<br />";
-    exit;
-    $tax = array ('valores' => array(
-        'Amor'
-    ));
+   
     if ( isset( $_POST['submitted'] ) ) {
-        $post_information = array(
-            'post_title' => wp_strip_all_tags( $_POST['postTitle'] ),
-            'post_excerpt' => $_POST['postContent'],
-            // 'post_content'  => $_POST['postContent'],
-            'post_type' => 'reconocimiento',
-            'post_status' => 'publish',
-            'tax_input'     =>  $tax
+        //Comprobar valor
+        $valor = term_exists( $_POST['valores'], 'valores' );
+        echo "termino: ".$_POST['valores'];
+        if ( $valor > 0) {
+            $post_information = array(
+                'post_title' => wp_strip_all_tags( $_POST['postTitle'] ),
+                'post_excerpt' => $_POST['postContent'],
+                'post_content'  => $_POST['postContent'],
+                'post_type' => 'reconocimiento',
+                'post_status' => 'publish',
+                // 'tax_input'     =>  $tax
+            );
+            $pid = wp_insert_post( $post_information, true );
+            add_post_meta($pid, 'reconocimiento_usuario', $_POST['reconocimiento_usuario'], true);
+            $term_taxonomy_ids = wp_set_object_terms( $pid, $_POST['valores'], 'valores', false );
+            if ( is_wp_error( $term_taxonomy_ids ) ) {
+                echo " Error al insertar la categoria";
+            } else {
+                echo " Se relaciona el termino con el post";
+            }
+        } else {
+            echo "<h1> Error no existe termino: ". $valor."</h1>";
+            echo "<h2> Valor: ". $valor."</h2>";
+            print_r( $_POST['valores']);
+        } //Si no existe el termino
 
-        );
-
-        $pid = wp_insert_post( $post_information, true );
-        add_post_meta($pid, 'reconocimiento_usuario', $_POST['reconocimiento_usuario'], true);
-    }
-}
+    } // Si submit
+    exit;
+ }
 ?>
 <form action="" id="primaryPostForm" method="POST">
     <div class="form-group">
@@ -67,3 +86,4 @@ if (isset( $_POST[‘cpt_nonce_field’] ) && wp_verify_nonce( $_POST[‘cpt_non
         <button id="postLoad" type="submit" class="btn btn-large btn-success" value="send"><?php _e('Guardar', 'framework') ?></button>
     </div>
 </form>
+<?php } ?>
