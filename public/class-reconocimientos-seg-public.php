@@ -136,20 +136,19 @@ class Reconocimientos_Seg_Public {
 		 * class.
 		 */
 		// global $post_type;
-		// // $screen = get_current_screen();
-		// if ( 'reconocimiento' === $post_type )
-		// {
+		// $screen = get_current_screen();
+		if ( is_page( 'crear-reconocimiento' ) )
+		{
 			wp_deregister_script('jquery'); 
 			wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', false, '3.2.1'); 
 			wp_enqueue_script('jquery');
 			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/reconocimientos-seg-public.js', array( 'jquery' ), $this->version, false );
 			wp_enqueue_script( 'easy-autocomplete', plugin_dir_url( __FILE__ ) . 'js/jquery.easy-autocomplete.js', array( 'jquery' ), $this->version, false );
-	//  wp_enqueue_script('ajax-script',plugin_dir_url( __FILE__ ) . 'js/reconocimientos-seg-admin-ajax.js', array( 'jquery' ), $this->version, false );
 			wp_localize_script( $this->plugin_name, 'ajax_object',
 			array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'security'=> wp_create_nonce( 'security-nonce') ) );
-		// }
+		}
 
-		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/reconocimientos-seg-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/reconocimientos-seg-public.js', array( 'jquery' ), $this->version, false );
 	}
 	public function my_action(){
 		//Verificar nonce
