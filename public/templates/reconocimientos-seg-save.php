@@ -83,7 +83,7 @@ if (isset( $_POST[‘cpt_nonce_field’] ) && wp_verify_nonce( $_POST[‘cpt_non
     </div>
     <div class="form-group">
     <?php wp_nonce_field( ‘cpt_nonce_action’, ‘cpt_nonce_field’ ); ?>
-        <button id="postLoad" type="submit" class="btn btn-large btn-success" value="send"><?php _e('Guardar', 'framework') ?></button>
+        <button id="postLoad" type="submit" class="btn btn-primary btn-lg btn-block" value="send"><?php _e('Enviar', 'framework') ?></button>
     </div>
 </form>
 <?php } ?>
