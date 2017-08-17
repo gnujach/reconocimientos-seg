@@ -148,7 +148,7 @@ class Reconocimientos_Seg_Public {
 			array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'security'=> wp_create_nonce( 'security-nonce') ) );
 		}
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/reconocimientos-seg-public.js', array( 'jquery' ), $this->version, false );
+		//wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/reconocimientos-seg-public.js', array( 'jquery' ), $this->version, false );
 	}
 	public function my_action(){
 		//Verificar nonce
