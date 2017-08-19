@@ -49,28 +49,38 @@
 }
 .btn-amor {
     color: #fff;
-    background-color: #EC644B;
-    border-color: #EC644B;
+    background-color: #E71096;
+    border-color: #E71096;
 }
 .btn-honestidad {
     color: #fff;
-    background-color: #87D37C;
-    border-color: #87D37C;
+    background-color: #A3C5E9;
+    border-color: #A3C5E9;
 }
 .btn-responsabilidad {
     color: #fff;
-    background-color: #446CB3;
-    border-color: #446CB3;
+    background-color: #C3E76A;
+    border-color: #C3E76A;
 }
 .btn-generosidad {
     color: #fff;
-    background-color: #F9690E;
-    border-color: #F9690E;
+    background-color: #00509C;
+    border-color: #00509C;
 }
 .btn-union {
     color: #fff;
     background-color: #D2527F;
     border-color: #D2527F;
+}
+.btn-respeto {
+    color: #fff;
+    background-color: #ECA45C;
+    border-color: #ECA45C;
+}
+.btn-benedicencia {
+    color: #fff;
+    background-color: #C5A6E2;
+    border-color: #C5A6E2;
 }
 form .counter{
 	position:absolute;
