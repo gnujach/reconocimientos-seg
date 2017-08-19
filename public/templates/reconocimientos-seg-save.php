@@ -79,7 +79,7 @@ if (isset( $_POST[‘cpt_nonce_field’] ) && wp_verify_nonce( $_POST[‘cpt_non
         <label for="success" class="btn btn-responsabilidad">Responsabilidad <input type="radio" id="success" name="valores" value="Responsabilidad"  class="badgebox"><span class="badge">&check;</span></label>
         <label for="warning" class="btn btn-benedicencia">Benedicencia <input type="radio" id="warning" name="valores"  value="Benedicencia" class="badgebox"><span class="badge">&check;</span></label>
         <label for="danger" class="btn btn-generosidad">Generosidad <input type="radio" id="danger" name="valores" value="Generosidad" class="badgebox"><span class="badge">&check;</span></label>
-        <label for="union" class="btn btn-union">Unión <input type="radio" id="unio" name="valores" value="Unión" class="badgebox"><span class="badge">&check;</span></label>
+        <label for="union" class="btn btn-union">Unión <input type="radio" id="union" name="valores" value="Unión" class="badgebox"><span class="badge">&check;</span></label>
         <label for="respeto" class="btn btn-respeto">Respeto <input type="radio" id="respeto" name="valores" value="Respeto" class="badgebox"><span class="badge">&check;</span></label>
     </div>
     <div class="form-group">
