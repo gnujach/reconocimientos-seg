@@ -61,6 +61,44 @@ class Reconocimientos_Seg_Public {
 
 	} // register_shortcodes()
 
+	public function sendMailtoReconocido ( $ID, $post ) {
+		// if ( $update ) {
+        // 	return;
+    	// }
+		// global $post;
+		// if ( wp_is_post_revision( $post->ID ) ) {
+    	//     return;
+	    // }
+		// print_r( $post->post_type );
+		if ( $post->post_type !== 'reconocimiento' ) {
+        	return;
+    	}
+		// print_r( $post->post_type );
+		$headers .= "MIME-Version: 1.0\r\n";
+    	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		// return
+		$reconocido = get_post_meta( $ID,'key_1', false );
+		// $reconocido = get_post_meta( $ID );
+		// print_r( $post->post_type );
+		// $reconocido = $custom_fields['reconocimiento_usuario'];
+		$destinatario = get_userdata( $_POST['reconocimiento_usuario'] );
+		
+    	$emailTo = (string) $destinatario->user_email; // Get agent email
+    	$agent_display_name = $destinatario->display_name; // Get agent display name
+		 // Email Subject
+    	$subject = "Hey... ". $agent_display_name. " tienes un nuevo Reconocimiento";
+		// Email Body
+    	$message = "<b>".$agent_display_name.":</b><br/>";
+    	$message .= "Hola, alguien te envío un nuevo reconocimiento <br/>";
+    	$message .= "Puedes verlo en: ".get_permalink( $post->ID );
+		// Send the mail
+		// print_r( $message );
+		// return;
+    	wp_mail( $emailTo, $subject, $message, $headers );
+
+
+	}
+
 	public function mostrar_reconocimientos ( $atts = array () ){		
 		ob_start();
 		$defaults['loop-template'] 	=	$this->plugin_name . '-loop';
