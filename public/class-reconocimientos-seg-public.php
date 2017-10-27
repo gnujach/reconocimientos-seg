@@ -90,7 +90,7 @@ class Reconocimientos_Seg_Public {
 		// Email Body
     	$message = "<b>".$agent_display_name.":</b><br/>";
     	$message .= "Hola, alguien te envío un nuevo reconocimiento <br/>";
-    	$message .= "Puedes verlo en: ".get_permalink( $post->ID );
+    	$message .= "Puedes verlo en: <a =\"".get_permalink( $post->ID )."\" >aqui </a>";
 		// Send the mail
 		// print_r( $message );
 		// return;
